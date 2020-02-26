@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2 class="text-center mt-4">Pollster</h2>
+    {% if questions %}
+        {% for question in questions %}
+        <div class="card">
+            <div class="card-body">
+                <p class="lead">{{ question.question_text }}</p>
+                <a href="/polls/{{ question.id }}" class="btn btn-sm btn-primary">Vote Now</a>
+                <a href="/polls/{{ question.id }}/results" class="btn btn-sm btn-secondary">Results</a>
+            </div>
+        </div>
+        {% endfor %}
+    {% else %}
+        <p>No polls available</p>
+    {% endif %}
+{% endblock %}
